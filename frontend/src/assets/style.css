@@ -1,0 +1,209 @@
+@import url(cyberpunk.css);
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	position: relative;
+}
+
+#root {
+	height: 100%;
+	display: flex;
+}
+
+main {
+	min-width: 582px;
+	margin-top: auto;
+}
+
+.url-section {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin: 0 auto;
+	margin-top: 5rem;
+	position: relative;
+	z-index: 1;
+}
+
+.url-section input {
+	margin-bottom: -10px;
+}
+
+fieldset {
+	all: unset;
+}
+
+.entries-section {
+	display: flex;
+	flex-direction: column-reverse;
+	opacity: 0.5;
+	font-size: 0.8rem;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	height: 220px;
+	overflow: hidden;
+	padding: 0 1rem;
+	pointer-events: none;
+	user-select: none;
+	white-space: nowrap;
+}
+
+.entries-section::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 40px;
+	pointer-events: none;
+	top: 0;
+	background: linear-gradient(#000000, rgba(0, 0, 0, 0));
+}
+
+.entries-section::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 20px;
+	pointer-events: none;
+	background: linear-gradient(to left, #000000, rgba(0, 0, 0, 0));
+}
+
+.progress-info {
+	text-align: center;
+	width: 100%;
+	backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+	max-width: var(--input-width);
+	height: 15px;
+	border: 1px solid var(--purple);
+	margin: 0.5rem auto;
+	position: relative;
+}
+
+.progress-bar > div {
+	position: absolute;
+	background: var(--purple);
+	box-shadow: 0px 0px 30px 0px rgb(231, 14, 231);
+	left: 0;
+	top: 0;
+	height: 100%;
+	transition: width 0.5s ease;
+}
+
+.message-info {
+	text-align: center;
+}
+
+.image-download-progress {
+	position: relative;
+	font-size: 13px;
+}
+
+.image-download-progress::before,
+.image-download-progress::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 30px;
+	pointer-events: none;
+}
+
+.image-download-progress::before {
+	top: 0;
+	background: linear-gradient(#000000, rgba(0, 0, 0, 0));
+}
+.image-download-progress::after {
+	bottom: 0;
+	background: linear-gradient(rgba(0, 0, 0, 0), #000000);
+}
+
+.image-download-progress ul {
+	height: 300px;
+	overflow-y: scroll;
+	list-style: none;
+	text-align: start;
+	padding: 0;
+}
+.image-download-progress ul li {
+	padding: 5px 10px 5px 5px;
+}
+.image-download-progress ul li:first-child {
+	margin-top: 2rem;
+}
+.image-download-progress ul li:last-child {
+	margin-bottom: 2rem;
+}
+
+.img-progress {
+	width: 100%;
+	margin: 5px 0;
+}
+
+.img-progress-bar {
+	height: 2px;
+	background-color: var(--purple);
+}
+
+.image-download-stats {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.image-propriety {
+	text-align: end;
+	opacity: 0.6;
+}
+
+/* Works on Firefox */
+.image-download-progress ul {
+	scrollbar-width: thin;
+	scrollbar-color: var(--purple) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.image-download-progress ul::-webkit-scrollbar {
+	width: 12px;
+}
+
+.image-download-progress ul::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.image-download-progress ul::-webkit-scrollbar-thumb {
+	background-color: var(--purple);
+	border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+	:root {
+		--input-width: 300px;
+	}
+
+	.url-section button {
+		width: 100%;
+	}
+	.url-section {
+		margin-top: 10rem;
+	}
+
+	/* .entries-section {
+		position: relative;
+		font-size: 0.8rem;
+	} */
+
+	.entries-section::after {
+		display: none;
+	}
+}

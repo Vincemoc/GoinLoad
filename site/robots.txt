@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://goinload.netlify.app/sitemap.xml
